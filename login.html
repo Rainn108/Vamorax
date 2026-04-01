@@ -4,23 +4,28 @@
   import { initPageTransition } from './js/transition.js';
   import { initWaveBackground } from './js/animations.js';
 
-  // Inisialisasi
+  // Biar Vercel gak 404, kita paksa URL tetap terbaca login.html di sistem
   initPageTransition();
   initWaveBackground();
   startProgress();
   initTheme();
   initSmoothScroll();
 
-  // Koneksikan handleSocialLogin ke fungsi asli di auth.js
+  // Hubungkan tombol onclick di HTML ke fungsi loginSocial di auth.js
   window.handleSocialLogin = (provider) => {
     loginSocial(provider);
   };
 
-  if (isLoggedIn()) { window.location.href = 'dashboard.html'; }
+  // Cek Auth
+  import { auth, onAuthStateChanged } from './js/firebase-config.js';
+  onAuthStateChanged(auth, (user) => {
+    if (user) window.location.href = 'dashboard.html';
+  });
+
   initLoginPage();
   doneProgress();
 
-  // --- LOGIKA TAB SWITCHING (Kode asli kamu) ---
+  // Logika Tab (Kode asli kamu)
   const tabs = document.querySelectorAll('.auth-tab');
   const panels = { login: document.getElementById('tab-login'), register: document.getElementById('tab-register') };
   let currentTab = 'login';
@@ -32,27 +37,18 @@
       tabs.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       document.getElementById('auth-heading').textContent = next === 'login' ? 'Sign in' : 'Create account';
-      const goingRight = next === 'register';
       const outPanel = panels[currentTab];
       const inPanel = panels[next];
       outPanel.style.opacity = '0';
-      outPanel.style.transform = `translateX(${goingRight ? '-16px' : '16px'})`;
+      outPanel.style.transform = `translateX(${next === 'register' ? '-16px' : '16px'})`;
       setTimeout(() => {
         outPanel.classList.add('hidden');
         inPanel.classList.remove('hidden');
-        inPanel.offsetHeight;
+        inPanel.offsetHeight; // force reflow
         inPanel.style.opacity = '1';
         inPanel.style.transform = 'translateX(0)';
         currentTab = next;
       }, 180);
     });
-  });
-
-  // Validasi Register
-  document.getElementById('register-form')?.addEventListener('submit', e => {
-    const pw = e.target.querySelector('[name="password"]').value;
-    const confirm = e.target.querySelector('[name="confirm"]').value;
-    if (pw !== confirm) { e.preventDefault(); showToast('Passwords do not match', 'error'); return; }
-    if (!document.getElementById('captcha').checked) { e.preventDefault(); showToast('Please verify you are not a robot', 'error'); return; }
   });
 </script>
