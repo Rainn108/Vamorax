@@ -1,42 +1,26 @@
 <script type="module">
-  // Tambahkan error handling agar tidak "Putih Doang" jika ada salah satu file gagal load
-  try {
-    import { initTheme, startProgress, doneProgress, showToast, initSmoothScroll } from './js/ui.js';
-    import { initLoginPage, isLoggedIn, loginGoogle, loginFacebook, loginApple } from './js/auth.js';
-    import { initPageTransition } from './js/transition.js';
-    import { initWaveBackground } from './js/animations.js';
+  import { initTheme, startProgress, doneProgress, showToast, initSmoothScroll } from './js/ui.js';
+  import { initLoginPage, isLoggedIn, loginSocial } from './js/auth.js';
+  import { initPageTransition } from './js/transition.js';
+  import { initWaveBackground } from './js/animations.js';
 
-    // Jalankan Fungsi
-    initPageTransition();
-    initWaveBackground();
-    startProgress();
-    initTheme();
-    initSmoothScroll();
+  // Inisialisasi
+  initPageTransition();
+  initWaveBackground();
+  startProgress();
+  initTheme();
+  initSmoothScroll();
 
-    // Cek Login
-    if (isLoggedIn()) { 
-      window.location.href = 'dashboard.html'; 
-    }
+  // Koneksikan handleSocialLogin ke fungsi asli di auth.js
+  window.handleSocialLogin = (provider) => {
+    loginSocial(provider);
+  };
 
-    initLoginPage();
-    doneProgress();
+  if (isLoggedIn()) { window.location.href = 'dashboard.html'; }
+  initLoginPage();
+  doneProgress();
 
-    // Pasang ke Window agar tombol onclick di HTML bisa baca
-    window.handleSocialLogin = async (provider) => {
-      try {
-        if (provider === 'google') await loginGoogle();
-        if (provider === 'facebook') await loginFacebook();
-        if (provider === 'apple') await loginApple();
-      } catch (err) {
-        showToast("Social login error", "error");
-        console.error(err);
-      }
-    };
-  } catch (e) {
-    console.error("Script Load Error:", e);
-  }
-
-  // --- LOGIKA TAB (Tetap Sama) ---
+  // --- LOGIKA TAB SWITCHING (Kode asli kamu) ---
   const tabs = document.querySelectorAll('.auth-tab');
   const panels = { login: document.getElementById('tab-login'), register: document.getElementById('tab-register') };
   let currentTab = 'login';
@@ -62,5 +46,13 @@
         currentTab = next;
       }, 180);
     });
+  });
+
+  // Validasi Register
+  document.getElementById('register-form')?.addEventListener('submit', e => {
+    const pw = e.target.querySelector('[name="password"]').value;
+    const confirm = e.target.querySelector('[name="confirm"]').value;
+    if (pw !== confirm) { e.preventDefault(); showToast('Passwords do not match', 'error'); return; }
+    if (!document.getElementById('captcha').checked) { e.preventDefault(); showToast('Please verify you are not a robot', 'error'); return; }
   });
 </script>
