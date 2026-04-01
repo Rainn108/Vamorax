@@ -12,7 +12,7 @@ import {
 } from './firebase-config.js';
 import { showToast, showConfirm } from './ui.js';
 
-// Get Current User (Firebase Style)
+// Get Current User
 export function getCurrentUser() {
   return auth.currentUser;
 }
@@ -34,12 +34,12 @@ export function logout() {
   });
 }
 
+// PROTECT ROUTE
 export function requireAuth(redirectTo = 'login.html') {
   onAuthStateChanged(auth, (user) => {
     if (!user) {
       localStorage.setItem('auth_redirect', window.location.href);
       window.location.href = redirectTo;
-      return false;
     }
   });
   return true;
@@ -63,39 +63,34 @@ export function updateNavAuth() {
   });
 }
 
-// SOCIAL LOGIN FUNCTION (GOOGLE, FB, APPLE)
-async function handleSocialLogin(provider) {
+// --- SOCIAL LOGIN LOGIC ---
+
+// Fungsi ini kita export supaya bisa dipakai di window.handleSocialLogin pada login.html
+export async function loginGoogle() { await startSocialLogin(googleProvider); }
+export async function loginFacebook() { await startSocialLogin(facebookProvider); }
+export async function loginApple() { await startSocialLogin(appleProvider); }
+
+async function startSocialLogin(provider) {
   try {
     const result = await signInWithPopup(auth, provider);
-    showToast(`Welcome ${result.user.displayName}! 🎉`, 'success');
+    showToast(`Welcome ${result.user.displayName || 'User'}! 🎉`, 'success');
+    
     const redirect = localStorage.getItem('auth_redirect') || 'dashboard.html';
     localStorage.removeItem('auth_redirect');
     setTimeout(() => window.location.href = redirect, 1000);
   } catch (err) {
     console.error("Social Login Error:", err.code);
-    showToast('Login failed: ' + err.message, 'error');
+    if (err.code !== 'auth/popup-closed-by-user') {
+      showToast('Login failed: ' + err.message, 'error');
+    }
   }
 }
+
+// --- PAGE INITIALIZATION ---
 
 export function initLoginPage() {
   const emailForm = document.querySelector('#email-login-form');
   const registerForm = document.querySelector('#register-form');
-  const tabBtns = document.querySelectorAll('.auth-tab-btn');
-
-  // Social Login Buttons Listener
-  document.querySelector('.btn-google')?.addEventListener('click', () => handleSocialLogin(googleProvider));
-  document.querySelector('.btn-facebook')?.addEventListener('click', () => handleSocialLogin(facebookProvider));
-  document.querySelector('.btn-apple')?.addEventListener('click', () => handleSocialLogin(appleProvider));
-
-  // Tab Switcher
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.querySelectorAll('.auth-tab-content').forEach(c => c.classList.add('hidden'));
-      document.querySelector(`#tab-${btn.dataset.tab}`)?.classList.remove('hidden');
-    });
-  });
 
   // LOGIN EMAIL & PASSWORD
   emailForm?.addEventListener('submit', async e => {
@@ -114,7 +109,7 @@ export function initLoginPage() {
       localStorage.removeItem('auth_redirect');
       setTimeout(() => window.location.href = redirect, 1000);
     } catch (err) {
-      showToast('Login failed. ' + err.message, 'error');
+      showToast('Login failed: ' + err.message, 'error');
       btn.disabled = false; 
       btn.textContent = 'Sign In';
     }
