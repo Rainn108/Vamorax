@@ -1,5 +1,4 @@
 // ===== FIREBASE CONFIGURATION =====
-// Proyek: webbang-32962
 const firebaseConfig = {
   apiKey: "AIzaSyAodUP4ovThYhIqyYSWnhtpL_KrhB6pILo",
   authDomain: "webbang-32962.firebaseapp.com",
@@ -10,10 +9,8 @@ const firebaseConfig = {
   measurementId: "G-DP212LNDK8"
 };
 
-// Initialize Firebase Core
+// Import Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-
-// Initialize Authentication & Provider Google
 import { 
   getAuth, 
   RecaptchaVerifier, 
@@ -23,47 +20,33 @@ import {
   onAuthStateChanged, 
   signOut, 
   sendEmailVerification,
-  GoogleAuthProvider, // Tambahan untuk Google
-  signInWithPopup    // Tambahan untuk Google (Anti-Looping)
+  GoogleAuthProvider, 
+  FacebookAuthProvider, // <--- Tambahan Facebook
+  OAuthProvider,        // <--- Tambahan Apple
+  signInWithPopup    
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-// Initialize Firestore
-import { 
-  getFirestore, 
-  doc, 
-  setDoc, 
-  getDoc, 
-  updateDoc, 
-  deleteDoc,
-  collection, 
-  addDoc, 
-  query, 
-  where, 
-  getDocs, 
-  serverTimestamp 
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getFirestore, doc, setDoc, getDoc, updateDoc, collection, addDoc, query, where, getDocs, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 
-// Initialize Storage
-import { 
-  getStorage, 
-  ref, 
-  getDownloadURL 
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
-
-// Inisialisasi App
+// Inisialisasi
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
-const googleProvider = new GoogleAuthProvider(); // Buat instance provider di sini
 
-// Export semua yang dibutuhkan
+// Inisialisasi Provider
+const googleProvider = new GoogleAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
+const appleProvider = new OAuthProvider('apple.com'); // Provider Apple
+
 export { 
-  app, auth, db, storage, googleProvider, // Export provider juga
+  app, auth, db, storage, 
+  googleProvider, facebookProvider, appleProvider, // Export semua provider
   RecaptchaVerifier, signInWithPhoneNumber,
   createUserWithEmailAndPassword, signInWithEmailAndPassword,
   onAuthStateChanged, signOut, sendEmailVerification,
-  signInWithPopup, // Export fungsinya
+  signInWithPopup,
   doc, setDoc, getDoc, updateDoc, collection, addDoc,
   query, where, getDocs, serverTimestamp, ref, getDownloadURL
 };
