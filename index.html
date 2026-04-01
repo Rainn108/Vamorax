@@ -1,0 +1,417 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="logo Vm.png" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vamorax — Premium Alight Motion Presets</title>
+  <meta name="description" content="Premium Alight Motion presets. Starting from Rp 5.000." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <script>history.replaceState(null,'','/')</script>
+</head>
+<body>
+<div id="top-progress"></div>
+
+<!-- AMBIENT BACKGROUND -->
+<div class="page-ambient">
+  <div class="ambient-orb ambient-orb-a"></div>
+  <div class="ambient-orb ambient-orb-b"></div>
+</div>
+
+<!-- WAVE BACKGROUND -->
+<div class="wave-bg" aria-hidden="true">
+  <svg class="wave-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <!-- Blue/cyan waves — left side dominant -->
+    <path class="wv wv-b1" d="M-200,520 C100,460 300,580 600,510 C900,440 1100,560 1440,490 C1700,430 1900,540 2100,480"/>
+    <path class="wv wv-b2" d="M-200,560 C150,490 350,620 650,545 C950,470 1150,600 1440,530 C1680,465 1880,580 2100,515"/>
+    <path class="wv wv-b3" d="M-200,600 C80,530 280,660 580,585 C880,510 1080,640 1440,565 C1720,495 1920,620 2100,550"/>
+    <path class="wv wv-b4" d="M-200,480 C120,415 320,545 620,470 C920,395 1120,525 1440,450 C1700,385 1900,505 2100,440"/>
+    <path class="wv wv-b5" d="M-200,640 C60,570 260,700 560,625 C860,550 1060,680 1440,605 C1740,535 1940,660 2100,590"/>
+    <!-- Orange/yellow waves — right side dominant -->
+    <path class="wv wv-o1" d="M-200,680 C200,610 400,740 700,665 C1000,590 1200,720 1440,645 C1660,575 1860,700 2100,630"/>
+    <path class="wv wv-o2" d="M-200,720 C180,648 380,778 680,703 C980,628 1180,758 1440,683 C1680,613 1880,738 2100,668"/>
+    <path class="wv wv-o3" d="M-200,760 C160,688 360,818 660,743 C960,668 1160,798 1440,723 C1700,653 1900,778 2100,708"/>
+    <path class="wv wv-o4" d="M-200,800 C140,728 340,858 640,783 C940,708 1140,838 1440,763 C1720,693 1920,818 2100,748"/>
+    <path class="wv wv-o5" d="M-200,840 C120,768 320,898 620,823 C920,748 1120,878 1440,803 C1740,733 1940,858 2100,788"/>
+  </svg>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="index.html" class="navbar-brand"><svg viewBox="0 0 100 100"><path d="M25 30 Q50 60 75 30"/><path d="M25 75 L25 60 Q35 58 50 75 Q65 58 75 60 L75 75"/></svg></a>
+  <ul class="navbar-nav">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="free-presets.html">Free</a></li>
+    <li><a href="tutorials.html">Tutorials</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="navbar-actions">
+    <button class="icon-btn theme-toggle" onclick="window.toggleTheme()" title="Toggle theme"></button>
+    <a href="search.html" class="icon-btn" title="Search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </a>
+    <button class="icon-btn cart-btn" title="Cart">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span class="cart-badge">0</span>
+    </button>
+    <a href="login.html" class="btn btn-primary btn-sm nav-login-btn">Sign in</a>
+    <div class="nav-user-menu hidden">
+      <a href="dashboard.html" class="icon-btn" title="Dashboard">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+    </div>
+  </div>
+  <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.add('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav">
+  <button class="mobile-nav-close">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <div class="mobile-nav-icons">
+    <button class="mobile-nav-icon-btn cart-btn" title="Cart">
+      <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span class="cart-badge">0</span>
+    </button>
+    <a href="login.html" class="mobile-nav-icon-btn nav-login-btn" title="Sign in">
+      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </a>
+    <div class="mobile-nav-icon-btn nav-user-menu hidden">
+      <a href="dashboard.html" style="display:flex;align-items:center;justify-content:center;width:100%;height:100%">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+    </div>
+  </div>
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="free-presets.html">Free Presets</a>
+  <a href="tutorials.html">Tutorials</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- CART -->
+<div class="cart-overlay"></div>
+<div class="cart-sidebar">
+  <div class="cart-header">
+    <span class="cart-title">Cart</span>
+    <button class="icon-btn cart-close">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="cart-items"></div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span class="cart-total-label">Total</span>
+      <span class="cart-total-price">Rp 0</span>
+    </div>
+    <button class="btn btn-primary w-full cart-checkout-btn">Checkout</button>
+  </div>
+</div>
+
+<!-- PAGE CONTENT (blur transition wrapper — fixed elements stay outside) -->
+<div class="page-content">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-noise"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Alight Motion Presets</div>
+    <h1 class="hero-title" id="heroTitle">
+      <span class="hero-line" data-text="Edit like a pro."></span>
+      <span class="hero-line hero-line-dim" data-text="For Rp 5.000."></span>
+    </h1>
+    <p class="hero-sub fade-up d2">
+      Premium presets for cinematic, velocity, and beat sync edits.
+      High-end visuals at an unbeatable price.
+    </p>
+    <div class="hero-actions fade-up d3">
+      <a href="shop.html" class="btn btn-primary btn-lg">Browse presets</a>
+      <a href="free-presets.html" class="btn btn-ghost btn-lg">Get free presets</a>
+    </div>
+    <div class="hero-stats fade-up d4">
+      <div class="hero-stat">
+        <div class="hero-stat-num">500+</div>
+        <div class="hero-stat-label">Presets</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">10K+</div>
+        <div class="hero-stat-label">Downloads</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">Rp 5K</div>
+        <div class="hero-stat-label">Per preset</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">3</div>
+        <div class="hero-stat-label">Free presets</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" style="margin:0 32px" />
+
+<!-- FEATURED (horizontal scroll) -->
+<section class="section">
+  <div style="padding:0 32px;margin-bottom:32px">
+    <span class="section-label">Featured</span>
+    <div style="display:flex;align-items:baseline;justify-content:space-between">
+      <h2 class="section-title fade-up">Trending presets</h2>
+      <a href="shop.html" class="btn btn-ghost btn-sm">View all</a>
+    </div>
+  </div>
+  <div class="h-scroll-outer">
+    <div class="h-scroll-wrapper">
+      <div class="h-scroll-track" id="featuredTrack"></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" style="margin:0 32px" />
+
+<!-- FREE PRESETS -->
+<section class="section">
+  <div class="container">
+    <div class="free-section">
+      <div style="margin-bottom:40px">
+        <span class="section-label">100% Free</span>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:12px">
+          <h2 class="section-title fade-up">Start for free</h2>
+          <a href="free-presets.html" class="btn btn-ghost btn-sm">See all free</a>
+        </div>
+        <p class="section-sub" style="margin-top:8px">Three premium presets, no payment required.</p>
+      </div>
+      <div class="preset-grid" id="freePresetsGrid"></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" style="margin:0 32px" />
+
+<!-- BEFORE / AFTER -->
+<section class="section">
+  <div class="container" style="max-width:680px">
+    <div class="section-header text-center">
+      <span class="section-label">See the difference</span>
+      <h2 class="section-title fade-up">Before &amp; after</h2>
+    </div>
+    <div class="comparison-slider" style="height:300px">
+      <div class="comparison-before" style="background:var(--bg-3);color:var(--text-3);font-size:13px;letter-spacing:0.5px">Without preset</div>
+      <div class="comparison-after" style="background:var(--bg-2);border-left:1px solid var(--border-strong);color:var(--text-2);font-size:13px;letter-spacing:0.5px">With preset</div>
+      <div class="comparison-handle"></div>
+    </div>
+    <p style="text-align:center;font-size:11px;color:var(--text-3);margin-top:12px;letter-spacing:0.5px">DRAG TO COMPARE</p>
+  </div>
+</section>
+
+<hr class="divider" style="margin:0 32px" />
+
+<!-- CTA -->
+<section class="section">
+  <div class="container" style="max-width:560px;text-align:center">
+    <span class="section-label">Get started</span>
+    <h2 class="section-title fade-up" style="margin-bottom:16px">Start editing now</h2>
+    <p class="section-sub" style="margin:0 auto 32px">Join thousands of creators making viral content. Premium quality, unbeatable price.</p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+      <a href="shop.html" class="btn btn-primary btn-lg">Browse all presets</a>
+      <a href="free-presets.html" class="btn btn-ghost btn-lg">Get free presets</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Vamorax</div>
+      <p class="footer-desc">Premium Alight Motion presets for content creators. High-end visuals, affordable price.</p>
+      <div class="social-links">
+        <a href="#" class="social-link" title="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="#" class="social-link" title="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        </a>
+        <a href="#" class="social-link" title="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+        </a>
+        <a href="mailto:support@Vamorax.com" class="social-link" title="Email">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Shop</div>
+      <div class="footer-links">
+        <a href="shop.html">All Presets</a>
+        <a href="shop.html?filter=cinematic">Cinematic</a>
+        <a href="shop.html?filter=velocity">Velocity</a>
+        <a href="shop.html?filter=beat-sync">Beat Sync</a>
+        <a href="free-presets.html">Free Presets</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Learn</div>
+      <div class="footer-links">
+        <a href="tutorials.html">Tutorials</a>
+        <a href="tutorials.html">How to Install</a>
+        <a href="tutorials.html">How to Create</a>
+        <a href="tutorials.html">Effects Guide</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Support</div>
+      <div class="footer-links">
+        <a href="contact.html">Contact</a>
+        <a href="login.html">My Account</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Vamorax</span>
+    <span>Made for creators</span>
+  </div>
+</footer>
+
+</div><!-- /page-content -->
+
+<!-- LIVE CHAT -->
+<button class="live-chat-btn" title="Live chat">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+</button>
+<div class="live-chat-window">
+  <div class="live-chat-header">
+    <span class="live-chat-header-title">Support</span>
+    <button class="icon-btn" onclick="document.querySelector('.live-chat-window').classList.remove('open')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="live-chat-messages">
+    <div class="chat-msg bot">Hi, how can I help you today?</div>
+  </div>
+  <div class="live-chat-quick"></div>
+</div>
+
+<script type="module">
+  import { initIntro } from './js/intro.js';
+  initIntro(); // runs immediately before anything else
+
+  import { initTheme, toggleTheme, startProgress, doneProgress, initScrollReveal, initSmoothScroll, initMobileNav, initHorizontalScroll, initComparisonSliders, initLiveChat } from './js/ui.js';
+  import { initCartSidebar } from './js/cart.js';
+  import { fetchPresets, fetchFreePresets, fetchTrendingPresets, renderPresetCard, renderSkeletonCards } from './js/shop.js';
+  import { updateNavAuth } from './js/auth.js';
+  import { initNavPill } from './js/navbar.js';
+  import { initPageTransition } from './js/transition.js';
+  import { initCharReveal } from './js/animations.js';
+
+  window.toggleTheme = toggleTheme;
+  initPageTransition();
+  startProgress();
+  initTheme();
+  initScrollReveal();
+  initSmoothScroll();
+  initMobileNav();
+  initCartSidebar();
+  initHorizontalScroll();
+  initComparisonSliders();
+  initLiveChat();
+  updateNavAuth();
+  initNavPill();
+  doneProgress();
+
+  // Hero text animation on load — per-letter split
+  setTimeout(() => {
+    document.querySelectorAll('.hero-line').forEach((line, lineIdx) => {
+      const text = line.dataset.text;
+      const isSecond = line.classList.contains('hero-line-dim');
+      line.innerHTML = '';
+
+      const inner = document.createElement('span');
+      inner.style.cssText = 'display:block;';
+
+      let charIdx = 0;
+      for (const ch of text) {
+        const span = document.createElement('span');
+        const isSpace = ch === ' ';
+        const delay = lineIdx * 200 + charIdx * 48;
+
+        // Line 1: translateY (bottom → up), Line 2: translateX (right → left)
+        const initTransform = isSecond ? 'translateX(24px)' : 'translateY(36px)';
+
+        span.style.cssText = [
+          'display:inline-block',
+          'opacity:0',
+          `transform:${initTransform}`,
+          'filter:blur(3px)',
+          `transition:opacity 0.6s cubic-bezier(0.22,1,0.36,1) ${delay}ms,transform 0.6s cubic-bezier(0.22,1,0.36,1) ${delay}ms,filter 0.5s ease ${delay}ms`,
+          isSpace ? 'width:0.3em' : '',
+          isSecond ? 'color:var(--text-2)' : '',
+        ].filter(Boolean).join(';');
+
+        span.textContent = isSpace ? '\u00A0' : ch;
+        inner.appendChild(span);
+        if (!isSpace) charIdx++;
+      }
+
+      line.appendChild(inner);
+    });
+
+    // Single rAF after all DOM is built — triggers all transitions via CSS delay
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.querySelectorAll('.hero-line span span').forEach(s => {
+          s.style.opacity = '1';
+          s.style.transform = 'translate(0,0)';
+          s.style.filter = 'blur(0)';
+        });
+      });
+    });
+
+    // Fade up the rest
+    document.querySelectorAll('.fade-up').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), 500 + i * 80);
+    });
+  }, 80);
+
+  // Featured (trending) presets
+  const track = document.getElementById('featuredTrack');
+  if (track) {
+    track.innerHTML = renderSkeletonCards(6);
+    fetchTrendingPresets().then(presets => {
+      track.innerHTML = presets.map(p => renderPresetCard(p)).join('');
+    });
+  }
+
+  // Free presets
+  const freeGrid = document.getElementById('freePresetsGrid');
+  if (freeGrid) {
+    freeGrid.innerHTML = renderSkeletonCards(3);
+    fetchFreePresets().then(presets => {
+      freeGrid.innerHTML = presets.map(p => renderPresetCard(p)).join('');
+    });
+  }
+
+  window.addPresetToCart = (id) => {
+    import('./js/cart.js').then(({ addToCart }) => {
+      const p = PRESETS.find(x => x.id === id); if (p) addToCart(p);
+    });
+  };
+  window.downloadFree = () => {
+    import('./js/ui.js').then(({ showToast }) => showToast('Please sign in to download', 'info'));
+    setTimeout(() => window.location.href = 'login.html', 1200);
+  };
+</script>
+</body>
+</html>
+
+
+
+
+

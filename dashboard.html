@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" /><link rel="icon" type="image/png" href="logo Vm.png" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — Vamorax</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <script>history.replaceState(null,'','/dashboard')</script>
+</head>
+<body>
+<div id="top-progress"></div>
+<nav class="navbar">
+  <a href="index.html" class="navbar-brand"><svg viewBox="0 0 100 100"><path d="M25 30 Q50 60 75 30"/><path d="M25 75 L25 60 Q35 58 50 75 Q65 58 75 60 L75 75"/></svg></a>
+  <div class="navbar-actions">
+    <button class="icon-btn theme-toggle" onclick="window.toggleTheme()"></button>
+    <a href="shop.html" class="btn btn-ghost btn-sm">Shop</a>
+    <button class="btn btn-ghost btn-sm logout-btn">Sign out</button>
+  </div>
+</nav>
+
+<div class="page-content">
+<div class="dashboard-layout">
+  <aside class="dashboard-sidebar">
+    <div style="padding:8px 12px;margin-bottom:24px">
+      <div style="font-size:13px;font-weight:600" class="dashboard-user-name">User</div>
+      <div style="font-size:12px;color:var(--text-3);margin-top:2px" class="dashboard-user-email">user@email.com</div>
+    </div>
+    <nav class="dashboard-nav">
+      <div class="dashboard-nav-item active" data-section="overview">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Overview
+      </div>
+      <div class="dashboard-nav-item" data-section="purchased">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+        My Presets
+      </div>
+      <div class="dashboard-nav-item" data-section="orders">
+        <svg viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Orders
+      </div>
+      <div class="dashboard-nav-item" data-section="wishlist">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        Wishlist
+      </div>
+      <div class="dashboard-nav-item" data-section="settings">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        Settings
+      </div>
+    </nav>
+  </aside>
+
+  <main class="dashboard-content">
+    <div id="section-overview" class="dashboard-section">
+      <div style="margin-bottom:32px">
+        <div style="font-size:11px;color:var(--text-3);letter-spacing:0.5px;margin-bottom:4px">Dashboard</div>
+        <h2 style="font-size:22px;font-weight:700;letter-spacing:-0.5px">Overview</h2>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-num" id="stat-purchased">0</div><div class="stat-label">Purchased presets</div></div>
+        <div class="stat-card"><div class="stat-num" id="stat-free">0</div><div class="stat-label">Free downloads</div></div>
+        <div class="stat-card"><div class="stat-num" id="stat-orders">0</div><div class="stat-label">Total orders</div></div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="shop.html" class="btn btn-primary">Browse presets</a>
+        <a href="free-presets.html" class="btn btn-ghost">Get free presets</a>
+      </div>
+    </div>
+
+    <div id="section-purchased" class="dashboard-section hidden">
+      <div style="margin-bottom:32px"><h2 style="font-size:22px;font-weight:700;letter-spacing:-0.5px">My Presets</h2></div>
+      <div class="preset-grid" id="purchased-grid">
+        <div style="grid-column:1/-1;padding:60px;text-align:center;color:var(--text-3);font-size:13px">No purchased presets yet. <a href="shop.html" style="color:var(--text-2)">Browse shop</a></div>
+      </div>
+    </div>
+
+    <div id="section-orders" class="dashboard-section hidden">
+      <div style="margin-bottom:32px"><h2 style="font-size:22px;font-weight:700;letter-spacing:-0.5px">Orders</h2></div>
+      <div id="orders-list" style="border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden">
+        <div style="padding:60px;text-align:center;color:var(--text-3);font-size:13px">No orders yet.</div>
+      </div>
+    </div>
+
+    <div id="section-wishlist" class="dashboard-section hidden">
+      <div style="margin-bottom:32px"><h2 style="font-size:22px;font-weight:700;letter-spacing:-0.5px">Wishlist</h2></div>
+      <div class="preset-grid" id="wishlist-grid">
+        <div style="grid-column:1/-1;padding:60px;text-align:center;color:var(--text-3);font-size:13px">Your wishlist is empty.</div>
+      </div>
+    </div>
+
+    <div id="section-settings" class="dashboard-section hidden">
+      <div style="margin-bottom:32px"><h2 style="font-size:22px;font-weight:700;letter-spacing:-0.5px">Settings</h2></div>
+      <div style="max-width:440px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-md);padding:32px">
+        <div class="form-group"><label class="form-label">Display name</label><input class="form-input" id="settings-name" type="text" placeholder="Your name" /></div>
+        <div class="form-group"><label class="form-label">Email</label><input class="form-input" id="settings-email" type="email" placeholder="your@email.com" /></div>
+        <div class="form-group">
+          <label class="form-label">Theme</label>
+          <div style="display:flex;gap:8px">
+            <button class="btn btn-ghost btn-sm" onclick="document.documentElement.setAttribute('data-theme','dark');localStorage.setItem('theme','dark')">Dark</button>
+            <button class="btn btn-ghost btn-sm" onclick="document.documentElement.setAttribute('data-theme','light');localStorage.setItem('theme','light')">Light</button>
+          </div>
+        </div>
+        <button class="btn btn-primary" id="settings-save">Save changes</button>
+      </div>
+    </div>
+  </main>
+</div>
+</div><!-- /page-content -->
+
+<script type="module">
+  import { initTheme, toggleTheme, startProgress, doneProgress, showToast } from './js/ui.js';
+  import { initDashboard } from './js/auth.js';
+  import { fetchPresets, renderPresetCard } from './js/shop.js';
+  import { initPageTransition } from './js/transition.js';
+  import { initWaveBackground } from './js/animations.js';
+  window.toggleTheme = toggleTheme;
+  initPageTransition();
+  initWaveBackground();
+  startProgress(); initTheme(); initDashboard(); doneProgress();
+
+  document.querySelectorAll('.dashboard-nav-item').forEach(item => {
+    item.addEventListener('click', () => {
+      document.querySelectorAll('.dashboard-nav-item').forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+      document.querySelectorAll('.dashboard-section').forEach(s => s.classList.add('hidden'));
+      document.getElementById(`section-${item.dataset.section}`)?.classList.remove('hidden');
+    });
+  });
+
+  const user   = JSON.parse(localStorage.getItem('alight_user') || 'null');
+  const orders = JSON.parse(localStorage.getItem('alight_orders') || '[]');
+  const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+
+  if (user) {
+    const purchased = user.purchasedPresets || [];
+    document.getElementById('stat-purchased').textContent = purchased.length;
+    document.getElementById('stat-free').textContent = (user.downloadedFreePresets || []).length;
+    document.getElementById('stat-orders').textContent = orders.length;
+
+    // Load presets async
+    fetchPresets().then(PRESETS => {
+      if (purchased.length > 0) {
+        const grid = document.getElementById('purchased-grid');
+        const items = PRESETS.filter(p => purchased.includes(p.id));
+        grid.innerHTML = items.length ? items.map(p => `
+          <div class="preset-card" style="background:var(--bg-2)">
+            <div class="preset-card-media"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
+            <div class="preset-card-body">
+              <div class="preset-card-cat">${p.category}</div>
+              <div class="preset-card-name">${p.name}</div>
+              <button class="btn btn-primary btn-sm w-full" style="margin-top:12px;justify-content:center">Download ZIP</button>
+            </div>
+          </div>`).join('')
+          : `<div style="grid-column:1/-1;padding:60px;text-align:center;color:var(--text-3);font-size:13px">No purchased presets yet.</div>`;
+      }
+
+      if (wishlist.length > 0) {
+        const items = PRESETS.filter(p => wishlist.includes(p.id));
+        if (items.length) document.getElementById('wishlist-grid').innerHTML = items.map(p => renderPresetCard(p)).join('');
+      }
+    });
+
+    if (orders.length > 0) {
+      document.getElementById('orders-list').innerHTML = orders.map(o => `
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:8px">
+          <div>
+            <div style="font-family:monospace;font-size:11px;color:var(--text-3)">${o.orderId}</div>
+            <div style="font-size:13px;font-weight:500;margin-top:2px">${o.items.length} preset${o.items.length !== 1 ? 's' : ''}</div>
+            <div style="font-size:11px;color:var(--text-3);margin-top:2px">${new Date(o.createdAt).toLocaleDateString('id-ID')}</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-size:15px;font-weight:700">${o.totalPrice === 0 ? 'Free' : 'Rp ' + o.totalPrice.toLocaleString('id-ID')}</div>
+            <div style="font-size:11px;color:var(--text-3);margin-top:2px">${o.status}</div>
+          </div>
+        </div>`).join('');
+    }
+  }
+
+  window.addPresetToCart = () => {};
+  window.downloadFree = () => {};
+
+  // ── Settings: pre-fill + save ──
+  const settingsName  = document.getElementById('settings-name');
+  const settingsEmail = document.getElementById('settings-email');
+  const settingsSave  = document.getElementById('settings-save');
+
+  if (user && settingsName) {
+    settingsName.value  = user.displayName || user.email?.split('@')[0] || '';
+    settingsEmail.value = user.email || '';
+  }
+
+  settingsSave?.addEventListener('click', () => {
+    const u = JSON.parse(localStorage.getItem('alight_user') || 'null');
+    if (!u) return;
+    u.displayName = settingsName.value.trim() || u.displayName;
+    localStorage.setItem('alight_user', JSON.stringify(u));
+    // Update sidebar display
+    document.querySelector('.dashboard-user-name').textContent = u.displayName || u.email?.split('@')[0];
+    showToast('Settings saved', 'success');
+  });
+</script>
+</body>
+</html>
+
+
+
+
+
