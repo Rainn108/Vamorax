@@ -13,25 +13,20 @@ const firebaseConfig = {
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { 
   getAuth, GoogleAuthProvider, FacebookAuthProvider, OAuthProvider, signInWithPopup,
-  createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendEmailVerification 
+  createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut 
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { getFirestore, doc, setDoc, getDoc, updateDoc, collection, addDoc, query, where, getDocs, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-const storage = getStorage(app);
 
-// Providers
+// Inisialisasi Provider Sosial
 const googleProvider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
 const appleProvider = new OAuthProvider('apple.com');
 
 export { 
-  app, auth, db, storage, googleProvider, facebookProvider, appleProvider,
-  signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword,
-  onAuthStateChanged, signOut, sendEmailVerification,
-  doc, setDoc, getDoc, updateDoc, collection, addDoc,
-  query, where, getDocs, serverTimestamp, ref, getDownloadURL
+  auth, db, googleProvider, facebookProvider, appleProvider, signInWithPopup,
+  createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut 
 };
